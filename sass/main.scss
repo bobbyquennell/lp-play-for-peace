@@ -97,8 +97,15 @@ body {
     position: relative;
     background: url("../images/bg_header.jpg") no-repeat;
     background-size: contain;
+    @include bp-medium {
+      background: url("../images/bg_header_mobile.jpg") no-repeat;
+      // background-size: contain;
+    };
     article {
       padding-top: 30%;
+      @include bp-medium {
+        padding-top: 90%;
+      };
       //min-height:400px;
     }
   }
@@ -133,7 +140,7 @@ body {
   margin-right: auto;
   padding-top: 20px;
   .header-title-lg {
-    @include font-size(80px);
+    @include font-size(90px);
     @include bp-medium {
       @include font-size(50px);
     };
@@ -196,8 +203,18 @@ body {
     img {
       width: 100%;
     }
-    &.flext-item-center {
+    &.flex-item-center {
       align-self: center;
+    }
+    &.flex-item-mobile-top {
+      @include bp-medium {
+        order: 0;
+      }
+    }
+    &.flex-item-mobile-base {
+      @include bp-medium {
+        order: 1;
+      }
     }
     @include bp-medium {
       flex: 1 1 100%;
@@ -269,8 +286,7 @@ body {
   p {
     max-width: 100%;
     &.item-content-details {
-      padding-left: 5px;
-      padding-right: 5px;
+      padding: 5px;
       // min-height: 160px;
       width: 80%;
       margin: auto;
@@ -278,9 +294,12 @@ body {
         // height: 260px;
       }
       @include breakpoint(799px) {
-        height: 80px;
+        // height: 80px;
         line-height: 1.2;
       }
+    }
+    &.align-left {
+      text-align: left;
     }
   }
   figure {
@@ -311,6 +330,15 @@ body {
       @include bp-medium {
         font-size: 15px;
       }
+    }
+  }
+  h4 {
+    width: 80%;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: auto;
+    &.align-left {
+      text-align: left;
     }
   }
   .play {
@@ -487,7 +515,7 @@ body {
 //===============
 .caption {
   p {
-    min-height: 85px;
+    // min-height: 50px;
     max-width: 100%;
     @include breakpoint(900px) {
       // min-height: 120px;
